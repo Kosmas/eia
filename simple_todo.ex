@@ -9,4 +9,8 @@ defmodule TodoList do
       fn(titles) -> [title | titles] end
     )
   end
+
+  def entries(todo_list, date) do
+    HashDict.get(todo_list, date, [])
+  end
 end
