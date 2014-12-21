@@ -11,7 +11,7 @@ defmodule Fraction do
 
   def add(
     %Fraction{a: a1, b: b1},
-    %Fraction(a: a2, b: b2}
+    %Fraction{a: a2, b: b2}
   ) do
     new(
       a1 * b2 + a2 * b1,
