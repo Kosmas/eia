@@ -13,5 +13,16 @@ defmodule TodoList do
         auto_id: auto_id + 1
       }
   end
+
+  def entries(%TodoList{entries: entries}, date) do
+    entries
+    |>  Stream.filter(fn({_, entry}) ->
+          entry.date == date
+        end)
+
+    |>  Enum.map(fn({_, entry}) ->
+          entry
+        end)
+  end
 end
 
