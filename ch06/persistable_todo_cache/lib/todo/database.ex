@@ -24,7 +24,7 @@ defmodule Todo.Database do
     file_name(db_folder, key)
     |> File.write!(:erlang.term_to_binary(data))
 
-    {:norply, db_folder}
+    {:noreply, db_folder}
   end
 
   def handle_call({:get, key}, _, db_folder) do
