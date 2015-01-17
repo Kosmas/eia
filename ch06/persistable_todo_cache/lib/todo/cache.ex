@@ -10,7 +10,7 @@ defmodule Todo.Cache do
   end
 
   def init(_) do
-    Todo.Database.start("./persist/")
+    Todo.Database.start('./persist/')
     {:ok, HashDict.new}
   end
 
@@ -20,7 +20,7 @@ defmodule Todo.Cache do
         {:reply, todo_server, todo_servers}
 
       :error ->
-        {:ok, new_server} = Todo.Server.start
+        {:ok, new_server} = Todo.Server.start(todo_list_name)
 
         {
           :reply,
