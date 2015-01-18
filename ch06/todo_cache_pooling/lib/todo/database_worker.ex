@@ -26,7 +26,7 @@ defmodule Todo.DatabaaseWorker do
   end
 
   def handle_call({:get, key}, _, db_folder) do
-    data = case File.read(fiile_name(db_folder, key)) do
+    data = case File.read(file_name(db_folder, key)) do
       {:ok, contents} -> :erlang.binary_to_term(contents)
       _ -> nil
     end
@@ -34,4 +34,5 @@ defmodule Todo.DatabaaseWorker do
     {:reply, data, db_folder}
   end
 
+  defp file_name(db_folder, key), do: "#{db_folder}/#{key}"
 end
