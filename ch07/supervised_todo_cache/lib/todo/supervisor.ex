@@ -5,7 +5,7 @@ defmodule Todo.Supervisor do
     Supervisor.start_link(__MODULE__, nil)
   end
 
-  def inti(_) do
+  def init(_) do
     processes = [worker(Todo.Cache, [])]
     supervise(processes, strategy: :one_for_one)
   end
